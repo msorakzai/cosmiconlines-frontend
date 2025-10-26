@@ -1,0 +1,67 @@
+import { NextResponse } from 'next/server';
+
+/**
+ * 🧩 BUYER PROFILE API
+ * PUT → Update buyer profile details
+ * (Mock setup — can be connected to Prisma or Supabase later)
+ */
+export async function PUT(req: Request) {
+  try {
+    const body = await req.json();
+    console.log('Profile update request:', body);
+
+    const { name, email, phone, address, image } = body;
+
+    // 🔹 Basic validation
+    if (!name || !email) {
+      return NextResponse.json(
+        { success: false, message: 'Name and email are required.' },
+        { status: 400 }
+      );
+    }
+
+    // 🔹 TODO: Save profile to database here
+    // Example (Prisma):
+    // await prisma.buyer.update({
+    //   where: { id: buyerId },
+    //   data: { name, email, phone, address, image },
+    // });
+
+    return NextResponse.json({
+      success: true,
+      message: 'Profile updated successfully!',
+      data: { name, email, phone, address, image },
+    });
+  } catch (error) {
+    console.error('Profile update error:', error);
+    return NextResponse.json(
+      { success: false, message: 'Something went wrong.' },
+      { status: 500 }
+    );
+  }
+}
+
+/**
+ * 🧩 (Optional)
+ * GET → Fetch buyer profile
+ */
+export async function GET() {
+  try {
+    // TODO: Replace mock data with real DB fetch
+    const mockProfile = {
+      name: 'John Doe',
+      email: 'john@example.com',
+      phone: '+92 300 1234567',
+      address: 'Karachi, Pakistan',
+      image: '/default-avatar.png',
+    };
+
+    return NextResponse.json({ success: true, profile: mockProfile });
+  } catch (error) {
+    console.error('Error fetching profile:', error);
+    return NextResponse.json(
+      { success: false, message: 'Failed to load profile' },
+      { status: 500 }
+    );
+  }
+}

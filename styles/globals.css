@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   🌌 COSMICONLINES — Global Theme Styles
+   ========================================================= */
+
+/* 🔤 Font + Base Setup */
+html,
+body {
+  min-height: 100vh;
+  color: white;
+  font-family: 'Exo 2', sans-serif;
+  background: linear-gradient(135deg, #0b0f19, #1a1f35, #141829);
+  background-size: 200% 200%;
+  animation: gradient-slow 16s ease infinite;
+}
+
+/* 🪞 Glassmorphism Utility */
+.bg-glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* 🌈 Cosmic Gradient Utility */
+.bg-cosmic-gradient {
+  background: linear-gradient(135deg, #1a1f35 0%, #0b0f19 100%);
+}
+
+/* 🔥 Glow Hover Buttons */
+button {
+  transition: all 0.3s ease-in-out;
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.4), 0 0 40px rgba(255, 107, 53, 0.2);
+}
+
+/* 🌀 Animated Gradient Background */
+@keyframes gradient-slow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.animate-gradient-slow {
+  background-size: 200% 200%;
+  animation: gradient-slow 12s ease infinite;
+}
+
+/* ✨ Text Glow */
+.text-glow {
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+/* 🧊 Card Hover Effect */
+.card-hover {
+  transition: all 0.35s ease;
+}
+.card-hover:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* 💫 Section Padding Utility */
+.section {
+  padding-top: 6rem; /* py-24 */
+  padding-bottom: 6rem;
+  padding-left: 1.5rem; /* px-6 */
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-left: 3rem; /* md:px-12 */
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-left: 5rem; /* lg:px-20 */
+    padding-right: 5rem;
+  }
+}

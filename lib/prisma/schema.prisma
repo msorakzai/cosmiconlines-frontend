@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // ya "mysql" agar aap MySQL use kar rahe ho
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  stores    Store[]  @relation("UserStores")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Store {
+  id            String   @id @default(cuid())
+  name          String
+  bio           String?
+  theme         String
+  category      String
+  subCategories String[]
+  logoUrl       String
+  bannerUrl     String
+  email         String
+  status        String
+
+  ownerId       String?  // ✅ Now String for UUID compatibility
+  owner         User?    @relation(fields: [ownerId], references: [id], name: "UserStores")
+
+  products      Product[]
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Product {
+  id              String   @id @default(uuid())
+  name            String
+  description     String?
+  price           Float
+  imageUrl        String?
+  pickupAddresses String[]
+  certifications  String[]
+  category        String
+  tags            String[]
+  stock           Int
+  rating          Float?
+
+  storeId         String
+  store           Store    @relation(fields: [storeId], references: [id], name: "StoreProducts")
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}

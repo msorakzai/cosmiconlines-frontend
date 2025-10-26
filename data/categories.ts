@@ -1,0 +1,48 @@
+export const marketplaceCategories: Record<string, string[]> = {
+  "E-Commerce Retail": [
+    "Electronics & Gadgets",
+    "Fashion & Apparel",
+    "Home & Kitchen",
+    "Books & Stationery",
+    "Mobile & Accessories",
+    "Toys & Baby Products",
+    "Furniture & Decor",
+    "Sports & Fitness",
+    "Beauty & Personal Care",
+  ],
+  "Pharmacy & Health": [
+    "Medicines",
+    "Supplements",
+    "Medical Equipment",
+    "Wellness Products",
+    "Clinics & Labs",
+  ],
+  "Grocery & Mart": [
+    "Cash & Carry",
+    "Supermarket",
+    "Bakery",
+    "Fresh Produce",
+    "Frozen Items",
+    "Beverages",
+  ],
+  "Digital Services": [
+    "Web Design",
+    "Software Development",
+    "Hosting & Domains",
+    "Online Courses",
+    "Freelance Services",
+  ],
+  "Food & Beverage": [
+    "Restaurants",
+    "Cafes",
+    "Catering",
+    "Cloud Kitchens",
+  ],
+  "Local Services": [
+    "Event Planners",
+    "Repair Services",
+    "Cleaning Services",
+    "Tailoring",
+  ],
+  "Others": ["General Store", "Mixed Category", "Unlisted"],
+};
